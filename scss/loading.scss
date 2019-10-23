@@ -1,0 +1,115 @@
+@import '../marcadores-de-menu/css/miranda.css';
+@import '../marcadores-de-menu/css/all.css';
+
+@for $i from 1 to 6 {
+    .linha#{$i}{
+        background: adjust-hue(rgb(143, 5, 223), $i * 10);
+        width: 6px;
+        height: 40px;
+        margin: 0 1px;
+        animation: scaley 1s infinite ease-in-out;
+        animation-delay: #{$i / 10}s;
+
+        @keyframes scaley{
+            0%{transform: scaley(0.5)}
+            50%{transform: scaley(1.3)}
+            100%{transform: scaley(0.5)}
+        }
+    }
+}
+
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+// LOADING CIRCULAR
+
+
+@for $i from 1 to 13 {
+    .circle#{$i}{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        left: calc(50% - 50px);
+        top: calc(50% - 50px);
+        transform: rotateZ(#{$i * 30}deg);
+        
+        &:before{
+            content:'';
+            width: 12px;
+            height: 12px;
+            background: purple;
+            display: block;
+            margin: 0 auto;
+            animation: rotate 1s infinite ease-in-out;
+            animation-delay: #{$i / 12}s;
+            border-radius: 100px;
+        }
+        
+        
+        @keyframes rotate{
+            0%{transform: scale(0)}
+            50%{transform: scale(1)}
+            100%{transform: scale(0)}
+        }
+    }
+}
+
+
+.loading-circle{
+    margin: auto;
+}
+
+.wrapper-loading{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+// all
+
+.content{
+    // transform: translatex(100vw);
+    transition: opacity 2s;
+    opacity: 0;
+    font-family: sans-serif;
+    
+    .text-wrapper{
+        margin: 100px 10%;
+    }
+}
+
+body{
+    overflow-x: hidden
+}
+
+
+
+// MENUS
+
+
+nav{
+    display: flex;
+    justify-content: flex-end;
+   
+}
+
+
